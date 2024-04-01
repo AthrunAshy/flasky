@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Flasky - Index
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello,
+         {% if name %}
+            {{ name }}
+         {% else %}
+            Stranger
+         {% endif %}
+         !
+    </h1>
+</div>
+<!-- 将输入的 form 快速呈现出来 -->
+{{ wtf.quick_form(form) }}
+{% endblock %}
+
