@@ -14,7 +14,13 @@ Flasky - Index
             Stranger
          {% endif %}
          !
-    </h1>
+      </h1>
+         {% if not known %}
+         <p>Nice to meet you!</p>
+         {% else %}
+         <p>Happy to see you again!</p>
+         {% endif %}
+    
 </div>
 <!-- 将输入的 form 快速呈现出来 -->
 {{ wtf.quick_form(form) }}
