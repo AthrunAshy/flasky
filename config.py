@@ -1,7 +1,8 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# 通常，开发过程中可使用这些设置的默认值，但在生产服务器中应该通过环境变量设定各个值
+# 开发过程中可使用这些设置的默认值，但在生产服务器中应该通过环境变量设定各个值
+# 基类 Config 定义各个配置通用的属性
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.googlemail.com')
@@ -15,13 +16,13 @@ class Config:
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # 初始化应用程序的静态方法
+    # 初始化应用程序的静态方法，用于定制自定义配置
     @staticmethod
     def init_app(app):
         pass
 
 
-# 开发环境的 config
+# 开发环境的 config 子类
 class DevelopmentConfig(Config):
     DEBUG = True
     # 定义开发环境的数据库位置，与其他环境区分开来
@@ -29,14 +30,14 @@ class DevelopmentConfig(Config):
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
-# 测试环境的 config
+# 测试环境的 config 子类
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
         'sqlite:///:memory:'  # 内存型数据库
 
 
-# 生产环境的 config
+# 生产环境的 config 子类
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
