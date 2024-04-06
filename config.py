@@ -34,7 +34,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-        'sqlite:///:memory:'  # 内存型数据库
+        'sqlite://'  # 内存型数据库
 
 
 # 生产环境的 config 子类
