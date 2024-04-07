@@ -8,7 +8,7 @@ from app.models import User, Role
 
 # 创建应用实例
 app = create_app()
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 
 @app.shell_context_processor
