@@ -16,7 +16,7 @@ login_manager.login_view = 'auth.login'
 
 
 # 工厂函数，通过 config 传参，可根据不同场景创建不同 app
-def create_app():  
+def create_app():
     app = Flask(__name__)
     app.config.from_object(config['development'])
     config['development'].init_app(app)

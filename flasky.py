@@ -1,6 +1,6 @@
 import os
 import click
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 # 从 app 文件夹导入其下__init__.py 中的 create_app, db
 from app import create_app, db
 # 从 app 文件夹导入其下 model.py 中的 User 和 Role 
