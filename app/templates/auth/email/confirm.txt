@@ -1,0 +1,15 @@
+Dear {{ user.username }},
+
+Thank you for registering an account with Flasky.
+
+To confirm your email address, please click the following link:
+
+    {{ url_for('auth.confirm', token=token, _external=True) }}
+
+If you did not make this request, simply ignore this email.
+
+Sincerely,
+
+The Flasky Team
+
+Note: replies to this email address are not monitored.
