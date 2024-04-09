@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_moment import Moment
@@ -6,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import config
 from flask_login import LoginManager
+from flask import Flask
 
 bootstrap = Bootstrap()
 mail = Mail()
@@ -13,7 +13,6 @@ moment = Moment()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
-
 
 # 工厂函数，通过 config 传参，可根据不同场景创建不同 app
 def create_app():

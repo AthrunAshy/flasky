@@ -1,19 +1,19 @@
-import os
 import click
 # from flask_migrate import Migrate
 # 从 app 文件夹导入其下__init__.py 中的 create_app, db
 from app import create_app, db
 # 从 app 文件夹导入其下 model.py 中的 User 和 Role 
-from app.models import User, Role
+from app.models import User, Role, Permission
 
 # 创建应用实例
 app = create_app()
+# app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 # migrate = Migrate(app, db)
 
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User, Role=Role)
+    return dict(db=db, User=User, Role=Role, Permission=Permission)
 
 
 @app.cli.command()

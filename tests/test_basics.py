@@ -6,7 +6,7 @@ from app import create_app, db
 class BasicsTestCase(unittest.TestCase):
     # 测试起始
     def setUp(self):
-        self.app = create_app()
+        self.app = create_app('testing')
         # 创建上下文
         self.app_context = self.app.app_context()
         self.app_context.push()
